@@ -28,7 +28,7 @@ public class GameController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GameDTO> findAll(@PathVariable Long id) {
+    public ResponseEntity<GameDTO> findById(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(gameService.findById(id));
     }
 
