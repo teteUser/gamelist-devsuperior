@@ -2,7 +2,6 @@ package br.com.tete.gamelist.service;
 
 import br.com.tete.gamelist.dto.GameDTO;
 import br.com.tete.gamelist.dto.GameMinDTO;
-import br.com.tete.gamelist.projection.GameMinProjection;
 import br.com.tete.gamelist.repository.GameRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
