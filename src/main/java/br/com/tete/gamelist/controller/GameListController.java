@@ -2,14 +2,12 @@ package br.com.tete.gamelist.controller;
 
 import br.com.tete.gamelist.dto.GameListDTO;
 import br.com.tete.gamelist.dto.GameMinDTO;
+import br.com.tete.gamelist.dto.ReplacementDTO;
 import br.com.tete.gamelist.service.GameListService;
 import br.com.tete.gamelist.service.GameService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,6 +31,11 @@ public class GameListController {
     @GetMapping("/{listId}/games")
     public ResponseEntity<List<GameMinDTO>> findByList(@PathVariable Long listId) {
         return ResponseEntity.status(HttpStatus.OK).body(gameService.findByList(listId));
+    }
+
+    @PostMapping("/{listId}/replacement")
+    public void updatePositions(@PathVariable Long listId, @RequestBody ReplacementDTO replacementDTO) {
+        gameListService.updatePositions(listId, replacementDTO.getSourceIndex(), replacementDTO.getDestinationIndex());
     }
 
 }
